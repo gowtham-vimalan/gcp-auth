@@ -1,4 +1,4 @@
-# GCP Auth Check
+# GCP Auth Check Using Workflow Identity Provider
 
 Minimal project to verify GitHub Actions can authenticate to Google Cloud using Workload Identity Federation.
 
