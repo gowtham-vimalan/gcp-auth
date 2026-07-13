@@ -21,7 +21,7 @@ Add these repository secrets in GitHub:
 
 ## Run it
 
-2. Add the secrets above
-3. Actions → **GCP Auth Check** → **Run workflow**
+1. Add the secrets above
+2. Actions → **GCP Auth Check** → **Run workflow**
 
 A successful run means GitHub can obtain GCP credentials through the Workload Identity Provider.
