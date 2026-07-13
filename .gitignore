@@ -1,0 +1,6 @@
+.DS_Store
+*.pem
+*.json
+!package.json
+.env
+.env.*
