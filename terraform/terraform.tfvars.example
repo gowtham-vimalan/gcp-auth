@@ -1,0 +1,5 @@
+project_id     = "REPLACE_ME"
+location       = "global"
+bucket_id      = "app-logs"
+retention_days = 1
+description    = "Application log storage"

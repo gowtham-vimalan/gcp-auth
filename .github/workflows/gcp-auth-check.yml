@@ -1,4 +1,4 @@
-name: GCP Auth Check
+name: Deploy Log Bucket
 
 on:
   workflow_dispatch:
@@ -8,9 +8,15 @@ permissions:
   id-token: write
 
 jobs:
-  check-gcp-access:
+  deploy-log-bucket:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: terraform
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - id: auth
         uses: google-github-actions/auth@v2
         with:
@@ -23,4 +29,19 @@ jobs:
       - name: Verify GCP access
         run: |
           gcloud auth list
-          gcloud projects list --limit=1
+          gcloud projects describe "${{ secrets.GCP_PROJECT_ID }}" --format='value(projectId)'
+        working-directory: .
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan -input=false -out=tfplan
+
+      - name: Terraform Apply
+        run: terraform apply -input=false -auto-approve tfplan
