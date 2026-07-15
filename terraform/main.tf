@@ -4,7 +4,7 @@ resource "google_logging_project_bucket_config" "log_storage" {
   bucket_id      = var.bucket_id
   retention_days = var.retention_days
   description    = var.description
-  log_analytics = true
+  enable_analytics = true
 }
 
 resource "google_logging_linked_dataset" "log_analytics" {
