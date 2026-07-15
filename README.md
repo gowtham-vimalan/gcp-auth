@@ -4,7 +4,7 @@ Minimal project to verify GitHub Actions can authenticate to Google Cloud using 
 
 ## Workflow
 
-[`.github/workflows/gcp-auth-check.yml`](.github/workflows/gcp-auth-check.yml) runs on `workflow_dispatch` and:
+[`.github/workflows/deploy-log-bucket.yml`](.github/workflows/deploy-log-bucket.yml) runs on `workflow_dispatch` and:
 
 1. Authenticates with `google-github-actions/auth` via a Workload Identity Provider and service account
 2. Sets up the Cloud SDK
